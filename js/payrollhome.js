@@ -78,7 +78,7 @@ const createInnerHtml=()=>
 const createEmployeePayrollJSON = () => {
     let empPayrollListLocal = [
       {       
-        _name: 'Harish',
+        _name: 'Ankit',
         _gender: 'male',
         _department: [
             'Engineering',
@@ -91,7 +91,7 @@ const createEmployeePayrollJSON = () => {
         _profilePic: '../assets/profile-images/Ellipse -2.png'
       },
       {
-        _name: 'Kumar',
+        _name: 'Charul',
         _gender: 'female',
         _department: [
             'Sales'
@@ -122,7 +122,7 @@ const createEmployeePayrollJSON = () => {
   //Adding function to delete elements when click on delete icon in actions
   const remove= (node)=>{
       //empPayrollList is array of data which is instatiated once all the content of webpage gets loaded
-      let empPayrollData= empPayrollList.find(empData=>empData.id=node.id);
+      let empPayrollData= empPayrollList.find(empData=>empData.id==node.id);
       //after finding out, if element exist or node with given id, index of particular id is find out
       if(!empPayrollData) return;
       //for finding out index, emppayroll list is converted to array only of id by mapping and then
@@ -130,6 +130,8 @@ const createEmployeePayrollJSON = () => {
       const index= empPayrollList.map(empData=>empData.id).indexOf(empPayrollData.id);
       //using splice to remove element from array
       empPayrollList.splice(index,1);
+      if(site_properties.use_local_storage.match("true"))
+      {
       //updating the data into local storage
       localStorage.setItem("EmployeePayrollList",JSON.stringify(empPayrollList));
       //updating the count of employees here, otherwise refresh will be required to update count

@@ -25,7 +25,7 @@
     <div id="post_services" ></div>
     <script>
       const getElem = document.querySelector("#get_services");
-      const getURL = "http://localhost:8080/EmployeePayrollDB/1";
+      const getURL = "http://localhost:3000/EmployeePayrollDB/1";
       makeServiceCall("GET", getURL, true)
         .then(responseText => {
             getElem.textContent = "Get User Data: "+responseText;
