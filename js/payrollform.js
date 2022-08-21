@@ -103,6 +103,7 @@ const save=(event)=>{
   
 }
 
+
 const createOrUpdateEmployeePayroll=()=>
 {
     let postURL= site_properties.server_url;
@@ -123,6 +124,11 @@ const createOrUpdateEmployeePayroll=()=>
                 throw error;
             })
 }
+
+
+//setting employee payroll objects with data entered in payroll form
+const setEmployeePayrollObject = () => {
+    if(!isUpdate && site_properties.use_local_storage.match("true")){
 
 //setting employee payroll objects with data entered in payroll form
 const setEmployeePayrollObject = () => {
